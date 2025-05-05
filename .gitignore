@@ -1,0 +1,28 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Environment files
+.env
+.venv/
+env/
+venv/
+
+# MLflow tracking directory
+mlruns/
+
+# Model files (trained models, tokenizer configs, etc.)
+model/
+
+# Predictions or other output data
+predictions/
+
+# VSCode settings (optional)
+.vscode/
+
+# macOS system files
+.DS_Store
