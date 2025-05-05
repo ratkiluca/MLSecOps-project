@@ -6,7 +6,7 @@ user_input = st.text_input(label="Írd be a szöveget:")
 
 if st.button(label="Predikció"):
     response = requests.post(
-        url="http://localhost:8000/predict",
+        url="http://localhost:8001/predict",
         json={"text": user_input},
         timeout=20
     )
