@@ -26,3 +26,7 @@ predictions/
 
 # macOS system files
 .DS_Store
+
+# Reports
+suite.html
+data_drift_report.html
