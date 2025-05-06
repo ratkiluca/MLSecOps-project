@@ -1,0 +1,27 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mlsecops-api-service  # Improved container name
+    image: mlsecops-api
+    ports:
+      - "8000:8000"
+    networks:
+      - mlsecops-network
+
+  streamlit:
+    build:
+      context: .
+      dockerfile: Dockerfile.streamlit
+    container_name: mlsecops-streamlit-service  # Improved container name
+    ports:
+      - "8501:8501"
+    networks:
+      - mlsecops-network
+    depends_on:
+      - api
+
+networks:
+  mlsecops-network:
+    driver: bridge

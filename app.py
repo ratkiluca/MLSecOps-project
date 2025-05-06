@@ -1,15 +1,19 @@
 import streamlit as st
 import requests
 
-st.title(body="Sentiment Analysis App")
+st.title("Sentiment Analysis App")
 user_input = st.text_input(label="Írd be a szöveget:")
 
-if st.button(label="Predikció"):
-    response = requests.post(
-        url="http://localhost:8001/predict",
-        json={"text": user_input},
-        timeout=20
-    )
-    if response.status_code == 200:
-        result = response.json()
-        st.write(f"Eredmény: {result['label']} ({result['score']:.2f})")
+if st.button(label="Predikció") and user_input:
+    try:
+        response = requests.post(
+            url="http://api:8000/predict", json={"text": user_input}, timeout=20
+        )
+        if response.status_code == 200:
+            result = response.json()
+            st.write(f"Eredmény: {result['label']} ({result['score']:.2f})")
+        else:
+            st.write("Hiba a predikció során. Állapotkód:",
+                     response.status_code)
+    except Exception as e:
+        st.write("Nem sikerült elérni az API-t:", str(e))

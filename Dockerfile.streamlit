@@ -1,0 +1,19 @@
+# Báziskép: Python + pip
+FROM python:3.10-slim
+
+# Munkakönyvtár
+WORKDIR /app
+
+# Függőségek telepítése
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Streamlit app bemásolása
+COPY app.py .
+COPY . /app
+
+# Port expozíció
+EXPOSE 8501
+
+# Streamlit futtatása
+CMD ["streamlit", "run", "app.py"]
