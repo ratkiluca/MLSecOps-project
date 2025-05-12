@@ -30,3 +30,6 @@ predictions/
 # Reports
 suite.html
 data_drift_report.html
+
+# Other generated files
+output.ipynb
