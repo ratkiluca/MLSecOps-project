@@ -30,6 +30,9 @@ services:
     environment:
       - AIRFLOW__CORE__LOAD_EXAMPLES=False
       - AIRFLOW__CORE__EXECUTOR=SequentialExecutor
+      - AIRFLOW__WEBSERVER__ENABLE_PROXY_FIX=True
+      - AIRFLOW__WEBSERVER__SECRET_KEY=admin
+
     volumes:
       - ./airflow/dags:/opt/airflow/dags
       - ./output:/opt/airflow/output

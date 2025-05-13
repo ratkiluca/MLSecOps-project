@@ -1,6 +1,5 @@
 import streamlit as st
 import requests
-import os
 import codecs
 from pathlib import Path
 
